@@ -8,6 +8,8 @@
 #include <QPainter>
 #include <QLinearGradient>
 #include <QPointF>
+#include <QMenuBar>
+#include <QMenu>
 
 class FramelessWindow : public QMainWindow {
     Q_OBJECT
@@ -34,6 +36,12 @@ protected:
 private:
     bool locked = false;
     QPoint oldPos;
+
+    QMenuBar *mainMenuBar;
+    QMenu *fileMenu;
+    QMenu *editMenu;
+    QMenu *windowMenu;
+    QMenu *helpMenu;
 
 };
 

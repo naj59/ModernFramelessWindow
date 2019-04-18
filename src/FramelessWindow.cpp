@@ -1,8 +1,24 @@
 #include "FramelessWindow.h"
+#include <QStyleFactory>
 
 FramelessWindow::FramelessWindow(QWidget *parent) : QMainWindow(parent) {
     setAttribute(Qt::WA_TranslucentBackground);
     setWindowFlags(Qt::FramelessWindowHint);
+    resize(640, 480);
+
+    mainMenuBar = new QMenuBar(this);
+
+    fileMenu = mainMenuBar->addMenu("FILE");
+    editMenu = mainMenuBar->addMenu("EDIT");
+    windowMenu = mainMenuBar->addMenu("WINDOW");
+    helpMenu = mainMenuBar->addMenu("HELP");
+
+    mainMenuBar->setStyle(QStyleFactory::create("fusion"));
+    mainMenuBar->setStyleSheet("background-color: none; border: none; color: black;");
+    QFont f("Segoe UI Semilight", 9);
+    mainMenuBar->setFont(f);
+
+    setMenuBar(mainMenuBar);
 }
 
 FramelessWindow::~FramelessWindow() {
@@ -11,7 +27,7 @@ FramelessWindow::~FramelessWindow() {
 
 void FramelessWindow::paintEvent(QPaintEvent *event) {
     QPainter painter(this);
-    drawShadow(painter, 10, 2.0, QColor(120, 120, 120, 32), QColor(255, 255, 255, 0), 0.0, 1.0, 0.6, width(), height());
+    drawShadow(painter, 1.5, 2.0, QColor(0, 122, 240), QColor(255, 255, 255, 0), 0.0, 1.0, 0.6, width(), height());
 }
 
 void FramelessWindow::drawShadow(QPainter &_painter, qint16 _margin, qreal _radius, QColor _start, QColor _end, qreal _startPos, qreal _endPos0, qreal _endPos1, qreal _width, qreal _height) {

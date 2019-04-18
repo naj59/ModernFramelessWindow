@@ -4,6 +4,12 @@ This is an approach of creating a modern (MS Office, Visual Studio like) framele
 
 ![screenshot](https://raw.githubusercontent.com/naj59/ModernFramelessWindow/master/screenshot.png)
 
+*(default)*
+
+![screenshot2](https://raw.githubusercontent.com/naj59/ModernFramelessWindow/master/screenshot2.png)
+
+*(little bit tweaking)*
+
 ### Building
 
 - [Git](https://git-scm.com/)
